@@ -1,0 +1,103 @@
+/* Projects Slider */
+.projects-container {
+    position: relative !important;
+}
+
+.projects-slider {
+    overflow: hidden !important;
+    position: relative !important;
+}
+
+.projects-grid {
+    display: flex !important;
+    transition: transform 0.3s ease !important;
+    gap: 0 !important;
+    padding: 20px !important;
+}
+
+.project-card {
+    flex: 0 0 100% !important;
+    height: 520px !important;
+    max-width: 400px !important;
+    margin: 0 auto !important;
+}
+
+.slider-btn {
+    position: absolute !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    background: #a5a488 !important;
+    color: white !important;
+    border: none !important;
+    width: 50px !important;
+    height: 50px !important;
+    border-radius: 50% !important;
+    cursor: pointer !important;
+    font-size: 18px !important;
+    z-index: 10 !important;
+    transition: all 0.3s ease !important;
+}
+
+.slider-btn:hover {
+    background: #8c8b73 !important;
+    transform: translateY(-50%) scale(1.1) !important;
+}
+
+.slider-prev {
+    left: 10px !important;
+}
+
+.slider-next {
+    right: 10px !important;
+}
+
+.slider-dots {
+    display: flex !important;
+    justify-content: center !important;
+    gap: 10px !important;
+    margin-top: 20px !important;
+}
+
+.slider-dot {
+    width: 12px !important;
+    height: 12px !important;
+    border-radius: 50% !important;
+    background: #ddd !important;
+    cursor: pointer !important;
+    transition: all 0.3s ease !important;
+}
+
+.slider-dot.active {
+    background: #a5a488 !important;
+    transform: scale(1.2) !important;
+}
+
+@media (max-width: 768px) {
+  .project-card {
+    flex: 0 0 100% !important;
+    height: 450px !important;
+    max-width: 350px !important;
+  }
+  .slider-btn {
+    width: 40px !important;
+    height: 40px !important;
+    font-size: 16px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .project-card {
+    flex: 0 0 100% !important;
+    height: 400px !important;
+    max-width: 300px !important;
+  }
+  .slider-btn {
+    width: 35px !important;
+    height: 35px !important;
+    font-size: 14px !important;
+  }
+  .slider-dot {
+    width: 10px !important;
+    height: 10px !important;
+  }
+}

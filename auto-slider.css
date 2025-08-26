@@ -1,0 +1,53 @@
+/* Auto Project Slider */
+.projects-container {
+    overflow: hidden !important;
+}
+
+.projects-grid {
+    display: flex !important;
+    animation: autoSlide 16s infinite linear !important;
+    gap: 30px !important;
+}
+
+.project-card {
+    flex: 0 0 400px !important;
+    height: 520px !important;
+}
+
+@keyframes autoSlide {
+    0% { transform: translateX(0); }
+    25% { transform: translateX(-430px); }
+    50% { transform: translateX(-860px); }
+    75% { transform: translateX(-1290px); }
+    100% { transform: translateX(0); }
+}
+
+@media (max-width: 768px) {
+    .project-card {
+        flex: 0 0 320px !important;
+        height: 450px !important;
+    }
+    
+    @keyframes autoSlide {
+        0% { transform: translateX(0); }
+        25% { transform: translateX(-350px); }
+        50% { transform: translateX(-700px); }
+        75% { transform: translateX(-1050px); }
+        100% { transform: translateX(0); }
+    }
+}
+
+@media (max-width: 480px) {
+    .project-card {
+        flex: 0 0 280px !important;
+        height: 400px !important;
+    }
+    
+    @keyframes autoSlide {
+        0% { transform: translateX(0); }
+        25% { transform: translateX(-310px); }
+        50% { transform: translateX(-620px); }
+        75% { transform: translateX(-930px); }
+        100% { transform: translateX(0); }
+    }
+}

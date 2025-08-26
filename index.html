@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vishal | Portfolio</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="responsive-final.css" />
+    <link rel="stylesheet" href="skills-responsive.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+    <nav class="navbar">
+        <a href="#home" class="logo">VISHAL.DEV</a>
+        <input type="checkbox" id="menu-toggle" hidden>
+        <label for="menu-toggle" class="menu-icon"><i class="fas fa-bars"></i></label>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#certificates">Certificates</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <section id="home" class="hero">
+        <div class="hero-left">
+            <h1>Hi, I am <span>Vishal Bhaliya</span></h1>
+            <h2>I build backend systems with Java, Spring Boot, and MySQL, and create responsive UIs using React, Swing, and JavaFX. I work on REST APIs, microservices, and efficient database design.</h2>
+            <h3>Passionate about clean code, system design, and solving real-world problems through technology.</h3>
+            <br>
+            <div class="buttons">
+                <a href="Vishal_CV.pdf" class="btn outline" download>Download CV</a>
+            </div>
+        </div>
+        <div class="hero-right">
+            <img src="./home.jpeg" alt="Vishal" />
+        </div>
+    </section>
+
+    <section id="about" class="about-section">
+        <div class="about-container">
+            <div class="about-content">
+                <h5 class="section-subtitle" style="font-weight: 600; color: #777; margin-bottom: 15px;">MY INTRODUCTION</h5>
+                
+                <p>
+                    I'm Vishal Bhaliya, a passionate Java Programmer from Gujarat, India. I build robust and scalable applications using Java and related technologies. I have hands-on experience in Java SE and Java EE, including frameworks like <strong>Spring Boot</strong> and <strong>Hibernate</strong>.
+                </p>
+                <p>
+                    With a strong foundation in object-oriented programming and database management (MySQL, PostgreSQL), I ensure performance and reliability in every solution I build. I'm also familiar with frontend technologies like HTML, CSS, JavaScript, and React, allowing me to work across the full stack.
+                </p>
+             
+                 <h5 class="section-subtitle" style="font-weight: 600; color: #777; margin-bottom: 15px;">Internship Experience</h5>
+                <p>
+PHP Developer Intern – (Maahi IT / Duration: 6 months)
+
+Developed and maintained web applications using PHP & WordPress.
+
+Assisted in debugging and troubleshooting issues in the development environment.</p>
+                <p><em>"Design is intelligence made visible. Code brings it to life."</em></p>
+                <div class="interests">
+                    <span><i class="fas fa-code"></i> Coding</span>
+                    <span><i class="fas fa-music"></i> Music</span>
+                    <span><i class="fas fa-plane"></i> Travel</span>
+                    <span><i class="fas fa-film"></i> Movies</span>
+                    <span><i class="fas fa-gamepad"></i> Gaming</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="certificates" class="certificates-section">
+        <div class="certificates-container">
+            <h2 class="section-title">My Certificates</h2>
+            <p class="section-subtitle">Professional certifications and achievements that validate my skills and knowledge.</p>
+            
+            <div class="certificates-grid">
+
+
+                <div class="certificate-card" onclick="openCertificate('intenship.png')">
+                    <div class="certificate-icon">
+                        <i class="fas fa-industry"></i>
+                    </div>
+                    <div class="certificate-content">
+                        <h3>PHP Developer Internship</h3>
+                        <p class="certificate-issuer">Maahi IT</p>
+                        <p class="certificate-description">Completed internship as a PHP Developer in the web development department, working under the mentorship of Mr. Nirav Darji. Demonstrated hard work, honesty, dedication, and responsibility.</p>
+                        <div class="certificate-date">
+                            <i class="fas fa-calendar-alt"></i>
+                            <span>Dec 2023 – Apr 2024</span>
+                        </div>
+                        <div class="certificate-actions">
+                            <button class="btn-view-certificate" onclick="event.stopPropagation(); openCertificate('intenship.png')">
+                                <i class="fas fa-eye"></i> View Certificate
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="certificate-card" onclick="openCertificate('hackthon.png')">
+                    <div class="certificate-icon">
+                        <i class="fas fa-trophy"></i>
+                    </div>
+                    <div class="certificate-content">
+                        <h3>Illuminati 2025 Hackathon</h3>
+                        <p class="certificate-issuer">ITM SLS Baroda University</p>
+                        <p class="certificate-description">Participated in a competitive, multi-day technical event, focusing on collaborative problem-solving, innovation, and rapid prototyping in a time-bound environment.</p>
+                        <div class="certificate-date">
+                            <i class="fas fa-calendar-alt"></i>
+                            <span> Feb 2025</span>
+                        </div>
+                        <div class="certificate-actions">
+                            <button class="btn-view-certificate" onclick="event.stopPropagation(); openCertificate('hackthon.png')">
+                                <i class="fas fa-eye"></i> View Certificate
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="certificate-card" onclick="openCertificate('java.png')">
+                    <div class="certificate-icon">
+                        <i class="fab fa-java"></i>
+                    </div>
+                    <div class="certificate-content">
+                        <h3>Java Programming Essentials Bootcamp</h3>
+                        <p class="certificate-issuer">LetsUpgrade</p>
+                        <p class="certificate-description">Completed an intensive 5-day bootcamp covering core Java principles, object-oriented programming (OOP), and essential programming constructs in collaboration with NSDC.</p>
+                        <div class="certificate-date">
+                            <i class="fas fa-calendar-alt"></i>
+                            <span>Oct 2022</span>
+                        </div>
+                        <div class="certificate-actions">
+                            <button class="btn-view-certificate" onclick="event.stopPropagation(); openCertificate('java.png')">
+                                <i class="fas fa-eye"></i> View Certificate
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="certificate-card" onclick="openCertificate('frontend.png')">
+                    <div class="certificate-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <div class="certificate-content">
+                        <h3>Responsive Web Design Project</h3>
+                        <p class="certificate-issuer">EduCBA</p>
+                        <p class="certificate-description">Gained hands-on experience building a fully responsive website using core front-end technologies including HTML, CSS, JavaScript, and the Bootstrap framework.</p>
+                        <div class="certificate-date">
+                            <i class="fas fa-calendar-alt"></i>
+                            <span> Oct 2022</span>
+                        </div>
+                        <div class="certificate-actions">
+                            <button class="btn-view-certificate" onclick="event.stopPropagation(); openCertificate('frontend.png')">
+                                <i class="fas fa-eye"></i> View Certificate
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="certificate-card" onclick="openCertificate('Python for data Science.jpg')">
+                    <div class="certificate-icon">
+                        <i class="fab fa-python"></i>
+                    </div>
+                    <div class="certificate-content">
+                        <h3>Python for Data Science</h3>
+                        <p class="certificate-issuer">Great Learning Academy</p>
+                        <p class="certificate-description">Mastered the fundamentals of Python programming for data science applications, including data structures, key libraries, and essential data manipulation techniques.</p>
+                        <div class="certificate-date">
+                            <i class="fas fa-calendar-alt"></i>
+                            <span>Jan 2023</span>
+                        </div>
+                        <div class="certificate-actions">
+                            <button class="btn-view-certificate" onclick="event.stopPropagation(); openCertificate('Python for data Science.jpg')">
+                                <i class="fas fa-eye"></i> View Certificate
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="certificate-card" onclick="openCertificate('codeClash.png')">
+                    <div class="certificate-icon">
+                        <i class="fas fa-trophy"></i>
+                    </div>
+                    <div class="certificate-content">
+                        <h3>Code Clash – Technical Event</h3>
+                        <p class="certificate-issuer">ILLUMINATI 2025 | ITM SLS Baroda University</p>
+                        <p class="certificate-description">Participated in the Code Clash competition under the Technical category, showcasing problem-solving and programming skills.</p>
+                        <div class="certificate-date">
+                            <i class="fas fa-calendar-alt"></i>
+                            <span>Feb 2025</span>
+                        </div>
+                        <div class="certificate-actions">
+                            <button class="btn-view-certificate" onclick="event.stopPropagation(); openCertificate('codeClash.png')">
+                                <i class="fas fa-eye"></i> View Certificate
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="certificate-card" onclick="openCertificate('vishal.pdf.jpg')">
+                    <div class="certificate-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <div class="certificate-content">
+                        <h3>My SQL Basics</h3>
+                        <p class="certificate-issuer">Great Learning Academy</p>
+                        <p class="certificate-description">
+                            Expertise in database fundamentals, SQL queries, data manipulation, and relational database concepts using MySQL.
+                        </p>
+                        <div class="certificate-date">
+                            <i class="fas fa-calendar-alt"></i>
+                            <span>Oct 2022</span>
+                        </div>
+                        <div class="certificate-actions">
+                            <button class="btn-view-certificate" onclick="event.stopPropagation(); openCertificate('vishal.pdf.jpg')">
+                                <i class="fas fa-external-link-alt"></i> View Certificate
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+               
+
+
+                
+
+
+
+
+            </div>
+        </div>
+    </section>
+
+        <section id="skills" class="skills-section">
+            <h2>My Skills</h2>
+            <h3 class="skill-category-title">Frontend</h3>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <div class="skill-category-badge">Frontend</div>
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" class="skill-icon" alt="HTML" />
+                    <span class="skill-tooltip">HTML: Markup Language</span>
+                    <h4>HTML</h4>
+                    <div class="level-label">Advanced</div>
+                    <div class="skill-progress">
+                        <div class="skill-progress-bar" style="width: 95%"></div>
+                    </div>
+                    <div class="skill-percentage">95%</div>
+                    <div class="knowledge-percentage">My knowledge: 95%</div>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-category-badge">Frontend</div>
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" class="skill-icon" alt="CSS" />
+                    <span class="skill-tooltip">CSS: Styling</span>
+                    <h4>CSS</h4>
+                    <div class="level-label">Advanced</div>
+                    <div class="skill-progress">
+                        <div class="skill-progress-bar" style="width: 90%"></div>
+                    </div>
+                    <div class="skill-percentage">90%</div>
+                    <div class="knowledge-percentage">My knowledge: 90%</div>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-category-badge">Frontend</div>
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" class="skill-icon" alt="JavaScript" />
+                    <span class="skill-tooltip">JavaScript: Programming</span>
+                    <h4>JavaScript</h4>
+                    <div class="level-label">Intermediate</div>
+                    <div class="skill-progress">
+                        <div class="skill-progress-bar" style="width: 75%"></div>
+                    </div>
+                    <div class="skill-percentage">55%</div>
+                    <div class="knowledge-percentage">My knowledge: 55%</div>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-category-badge">Frontend</div>
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" class="skill-icon" alt="React" />
+                    <span class="skill-tooltip">React: UI Library</span>
+                    <h4>React</h4>
+                    <div class="level-label">Beginner</div>
+                    <div class="skill-progress">
+                        <div class="skill-progress-bar" style="width: 70%"></div>
+                    </div>
+                    <div class="skill-percentage">50%</div>
+                    <div class="knowledge-percentage">My knowledge: 50%</div>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-category-badge">Frontend</div>
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg" class="skill-icon" alt="Bootstrap" />
+                    <span class="skill-tooltip">Bootstrap: CSS Framework</span>
+                    <h4>Bootstrap</h4>
+                    <div class="level-label">Advanced</div>
+                    <div class="skill-progress">
+                        <div class="skill-progress-bar" style="width: 85%"></div>
+                    </div>
+                    <div class="skill-percentage">85%</div>
+                    <div class="knowledge-percentage">My knowledge: 85%</div>
+                </div>
+
+                <div class="skill-card">
+                    <div class="skill-category-badge">Frontend</div>
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flutter/flutter-original.svg" class="skill-icon" alt="Flutter" />
+                    <span class="skill-tooltip">Flutter: Mobile Framework</span>
+                    <h4>Flutter</h4>
+                    <div class="level-label">Beginner</div>
+                    <div class="skill-progress">
+                        <div class="skill-progress-bar" style="width: 40%"></div>
+                    </div>
+                    <div class="skill-percentage">40%</div>
+                    <div class="knowledge-percentage">My knowledge: 40%</div>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-category-badge">Backend</div>
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg" class="skill-icon" alt="PHP" />
+                    <span class="skill-tooltip">PHP: Server-side Language</span>
+                    <h4>PHP</h4>
+                    <div class="level-label">Intermediate</div>
+                    <div class="skill-progress">
+                        <div class="skill-progress-bar" style="width: 65%"></div>
+                    </div>
+                    <div class="skill-percentage">65%</div>
+                    <div class="knowledge-percentage">My knowledge: 65%</div>
+                </div>
+            </div>
+            <h3 class="skill-category-title">Backend</h3>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <div class="skill-category-badge">Backend</div>
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original-wordmark.svg" class="skill-icon" alt="Java" />
+                    <span class="skill-tooltip">Java: Backend Language</span>
+                    <h4>Java</h4>
+                    <div class="level-label">Intermediate</div>
+                    <div class="skill-progress">
+                        <div class="skill-progress-bar" style="width: 88%"></div>
+                    </div>
+                    <div class="skill-percentage">80%</div>
+                    <div class="knowledge-percentage">My knowledge: 80%</div>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-category-badge">Backend</div>
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/spring/spring-original.svg" class="skill-icon" alt="Spring Boot" />
+                    <span class="skill-tooltip">Spring Boot: Java Framework</span>
+                    <h4>Spring Boot</h4>
+                    <div class="level-label">Intermediate</div>
+                    <div class="skill-progress">
+                        <div class="skill-progress-bar" style="width: 72%"></div>
+                    </div>
+                    <div class="skill-percentage">70%</div>
+                    <div class="knowledge-percentage">My knowledge: 70%</div>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-category-badge">Backend</div>
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/hibernate/hibernate-original-wordmark.svg" class="skill-icon" alt="Hibernate" />
+                    <span class="skill-tooltip">Hibernate: ORM Tool</span>
+                    <h4>Hibernate</h4>
+                    <div class="level-label">Intermediate</div>
+                    <div class="skill-progress">
+                        <div class="skill-progress-bar" style="width: 68%"></div>
+                    </div>
+                    <div class="skill-percentage">68%</div>
+                    <div class="knowledge-percentage">My knowledge: 68%</div>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-category-badge">Backend</div>
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" class="skill-icon" alt="Git" />
+                    <span class="skill-tooltip">Git & GitHub: Version Control</span>
+                    <h4>Git & GitHub</h4>
+                    <div class="level-label">Intermediate</div>
+                    <div class="skill-progress">
+                        <div class="skill-progress-bar" style="width: 82%"></div>
+                    </div>
+                    <div class="skill-percentage">70%</div>
+                    <div class="knowledge-percentage">My knowledge: 70%</div>
+                </div>
+            </div>
+            <h3 class="skill-category-title">Databases</h3>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <div class="skill-category-badge">Database</div>
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original-wordmark.svg" class="skill-icon" alt="MySQL" />
+                    <span class="skill-tooltip">MySQL: Database</span>
+                    <h4>MySQL</h4>
+                    <div class="level-label">Intermediate</div>
+                    <div class="skill-progress">
+                        <div class="skill-progress-bar" style="width: 80%"></div>
+                    </div>
+                    <div class="skill-percentage">70%</div>
+                    <div class="knowledge-percentage">My knowledge: 70%</div>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-category-badge">Database</div>
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" class="skill-icon" alt="PostgreSQL" />
+                    <span class="skill-tooltip">PostgreSQL: Database</span>
+                    <h4>PostgreSQL</h4>
+                    <div class="level-label">Intermediate</div>
+                    <div class="skill-progress">
+                        <div class="skill-progress-bar" style="width: 65%"></div>
+                    </div>
+                    <div class="skill-percentage">65%</div>
+                    <div class="knowledge-percentage">My knowledge: 65%</div>
+                </div>
+            </div>
+        </section>
+
+
+    <section id="projects" class="projects-section">
+        <div class="projects-container">
+            <h2 class="section-title">Featured Projects</h2>
+            <p class="section-subtitle">A selection of projects that highlight my skills and problem-solving approach.</p>
+            <div class="projects-grid" id="projectsGrid">
+                <div class="project-card" style="border: 2px solid #e76f00; position: relative;">
+                    <div class="project-image-container" style="background: linear-gradient(135deg, #f7df1e 0%, #e76f00 100%); display: flex; align-items: center; justify-content: center;">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original-wordmark.svg" alt="ATM Simulation System" style="width: 80px; height: 80px; background: #fff; border-radius: 50%; box-shadow: 0 2px 8px rgba(0,0,0,0.08);" />
+                        <span style="position: absolute; top: 12px; left: 12px; background: #e76f00; color: #fff; font-size: 0.85rem; font-weight: 700; padding: 4px 12px; border-radius: 8px;">Java Project</span>
+                    </div>
+                    <div class="project-content">
+                        <h3 style="color: #e76f00;">ATM-Simulation System</h3>
+                        <p>A desktop-based ATM simulation system built using Java OOP, Swing, AWT, and JDBC. Simulates ATM operations with a user-friendly interface.</p>
+                        <div class="project-tech" style="margin-bottom: 18px;">
+                            <span style="background: #e76f00; color: #fff;">Java (OOP)</span>
+                            <span style="background: #f7df1e; color: #333;">Swing</span>
+                            <span style="background: #f7df1e; color: #333;">AWT</span>
+                            <span style="background: #f7df1e; color: #333;">JDBC</span>
+                        </div>
+                        <a href="https://github.com/Vishal1183-bca/ATM-Simulation" class="btn-view-project" target="_blank" style="display: flex; align-items: center; justify-content: center; gap: 8px; background: #24292e; color: #fff; font-weight: 700;">
+                            <i class="fab fa-github"></i> View on GitHub
+                        </a>
+                    </div>
+                </div>
+                <div class="project-card" style="border: 2px solid #00796b; position: relative;">
+                    <div class="project-image-container" style="background: linear-gradient(135deg, #b2dfdb 0%, #00796b 100%); display: flex; align-items: center; justify-content: center;">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original-wordmark.svg" alt="Hotel Management System" style="width: 80px; height: 80px; background: #fff; border-radius: 50%; box-shadow: 0 2px 8px rgba(0,0,0,0.08);" />
+                        <span style="position: absolute; top: 12px; left: 12px; background: #00796b; color: #fff; font-size: 0.85rem; font-weight: 700; padding: 4px 12px; border-radius: 8px;">Java Project</span>
+                    </div>
+                    <div class="project-content">
+                        <h3 style="color: #00796b;">Hotel-Management-System</h3>
+                        <p>A comprehensive hotel management system using Java OOP, Swing, AWT, and JDBC. Manages bookings, customers, and hotel operations efficiently.</p>
+                        <div class="project-tech" style="margin-bottom: 18px;">
+                            <span style="background: #00796b; color: #fff;">Java (OOP)</span>
+                            <span style="background: #b2dfdb; color: #333;">Swing</span>
+                            <span style="background: #b2dfdb; color: #333;">AWT</span>
+                            <span style="background: #b2dfdb; color: #333;">JDBC</span>
+                        </div>
+                        <a href="https://github.com/Vishal1183-bca/Hotel-Management-System" class="btn-view-project" target="_blank" style="display: flex; align-items: center; justify-content: center; gap: 8px; background: #24292e; color: #fff; font-weight: 700;">
+                            <i class="fab fa-github"></i> View on GitHub
+                        </a>
+                    </div>
+                </div>
+                <div class="project-card" style="border: 2px solid #4caf50; position: relative;">
+                    <div class="project-image-container" style="background: linear-gradient(135deg, #81c784 0%, #4caf50 100%); display: flex; align-items: center; justify-content: center;">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original-wordmark.svg" alt="Cafe Shop Management System" style="width: 80px; height: 80px; background: #fff; border-radius: 50%; box-shadow: 0 2px 8px rgba(0,0,0,0.08);" />
+                        <span style="position: absolute; top: 12px; left: 12px; background: #4caf50; color: #fff; font-size: 0.85rem; font-weight: 700; padding: 4px 12px; border-radius: 8px;">JavaFX Project</span>
+                    </div>
+                    <div class="project-content">
+                        <h3 style="color: #4caf50;">Cafe-Shop-Management-System</h3>
+                        <p>A desktop-based Cafe Shop Management System built using JavaFX, JDBC, and MySQL. Manages cafe operations with an intuitive user interface.</p>
+                        <div class="project-tech" style="margin-bottom: 18px;">
+                            <span style="background: #4caf50; color: #fff;">JavaFX</span>
+                            <span style="background: #81c784; color: #333;">JDBC</span>
+                            <span style="background: #81c784; color: #333;">MySQL</span>
+                            <span style="background: #81c784; color: #333;">Desktop App</span>
+                        </div>
+                        <a href="https://github.com/Vishal1183-bca/Cafe-Shop-Management-System" class="btn-view-project" target="_blank" style="display: flex; align-items: center; justify-content: center; gap: 8px; background: #24292e; color: #fff; font-weight: 700;">
+                            <i class="fab fa-github"></i> View on GitHub
+                        </a>
+                    </div>
+                </div>
+                <div class="project-card" style="border: 2px solid #6f42c1; position: relative;">
+                    <div class="project-image-container" style="background: linear-gradient(135deg, #a78bfa 0%, #6f42c1 100%); display: flex; align-items: center; justify-content: center;">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/spring/spring-original.svg" alt="E-Commerce Website" style="width: 80px; height: 80px; background: #fff; border-radius: 50%; box-shadow: 0 2px 8px rgba(0,0,0,0.08);" />
+                        <span style="position: absolute; top: 12px; left: 12px; background: #6f42c1; color: #fff; font-size: 0.85rem; font-weight: 700; padding: 4px 12px; border-radius: 8px;">Spring Boot</span>
+                    </div>
+                    <div class="project-content">
+                        <h3 style="color: #6f42c1;">E-Commerce-Website</h3>
+                        <p>A full-featured E-Commerce website built using Spring Boot framework. Complete online shopping solution with modern web technologies.</p>
+                        <div class="project-tech" style="margin-bottom: 18px;">
+                            <span style="background: #6f42c1; color: #fff;">Spring Boot</span>
+                            <span style="background: #a78bfa; color: #333;">Java</span>
+                            <span style="background: #a78bfa; color: #333;">Web App</span>
+                            <span style="background: #a78bfa; color: #333;">E-Commerce</span>
+                        </div>
+                        <a href="https://github.com/Vishal1183-bca/E-Commerce-Website-using-Spring-Boot" class="btn-view-project" target="_blank" style="display: flex; align-items: center; justify-content: center; gap: 8px; background: #24292e; color: #fff; font-weight: 700;">
+                            <i class="fab fa-github"></i> View on GitHub
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    <section id="contact" class="contact-section">
+        <div class="contact-container">
+            <div class="contact-card">
+                <div class="contact-info">
+                    <h2>Contact Information</h2>
+                    <p>We'd love to hear from you! Whether you have a question, want to start a project, or just want to connect, feel free to reach out through any of the methods below.</p>
+                    
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <span>+91 9586399316</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <span>vishalbhaliya1334@gmail.com</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>354 Bhaliya Fadiyu Gutal, Vadodara, Gujarat</span>
+                        </div>
+                    </div>
+                    
+                    <div class="social-links">
+                        <a href="https://instagram.com/its_vishal_2004_" target="_blank" class="social-link">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://github.com/Vishal1183-bca" target="_blank" class="social-link">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/in/vishal-bhaliya-278424372/" target="_blank" class="social-link">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="contact-form-container">
+                    <h2>Get In Touch</h2>
+                    <form class="contact-form" id="contactForm" action="https://formspree.io/f/mdkdpbly" method="POST">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="name">Your Name</label>
+                                <input type="text" id="name" name="name" placeholder="Enter Your Name" required />
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Your Email</label>
+                                <input type="email" id="email" name="email" placeholder="Enter Your Email address" required />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Your Subject</label>
+                            <input type="text" id="subject" name="subject" placeholder="Enter Subject" required />
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" rows="5" placeholder="Write here your message" required></textarea>
+                        </div>
+                        <button type="submit" class="btn-submit">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-container">
+            <h3>Vishal.DEV</h3>
+            <p>Crafting solutions with code & creativity ✨</p>
+            <div class="social-icons">
+                <a href="https://github.com/Vishal1183-bca" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/vishal-bhaliya-278424372/" target="_blank"><i class="fab fa-linkedin"></i></a>
+                <a href="https://instagram.com/its_vishal_2004_" target="_blank"><i class="fab fa-instagram"></i></a>
+            </div>
+            <p class="copyright">© 2025 Vishal Bhaliya. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Skill Card Full Screen Popup -->
+    <div class="skill-popup-overlay" id="skillPopup">
+        <div class="skill-popup-content">
+            <button class="skill-popup-close" id="skillPopupClose">&times;</button>
+            <img src="" alt="" class="skill-popup-icon" id="skillPopupIcon">
+            <h2 class="skill-popup-title" id="skillPopupTitle"></h2>
+            <div class="skill-popup-knowledge" id="skillPopupKnowledge"></div>
+            <div class="skill-popup-level" id="skillPopupLevel"></div>
+            <p class="skill-popup-description" id="skillPopupDescription"></p>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script src="script.js"></script>
+    <script>
+        // ScrollReveal Animations
+        const sr = ScrollReveal({
+            distance: '50px',
+            duration: 1000,
+            easing: 'ease-in-out',
+            reset: false
+        });
+
+sr.reveal('.skills-category', { 
+    origin: 'bottom', 
+    interval: 200,
+    beforeReveal: (el) => {
+        el.classList.add('is-visible');
+    }
+});
+
+        sr.reveal('.navbar', { origin: 'top', delay: 200 });
+        sr.reveal('.hero-left', { origin: 'left', delay: 300 });
+        sr.reveal('.hero-right', { origin: 'right', delay: 500 });
+        sr.reveal('.about-img', { origin: 'left', delay: 200 });
+        sr.reveal('.about-content', { origin: 'right', delay: 300 });
+        sr.reveal('.certificates-section .section-title', { origin: 'top', delay: 200 });
+        sr.reveal('.certificate-card', { origin: 'bottom', interval: 150 });
+        sr.reveal('.skills-section h2, .skills-section .skill-category-title', { origin: 'top', delay: 200 });
+        sr.reveal('.skill-card', { origin: 'bottom', interval: 100 });
+        sr.reveal('.projects-section h2', { origin: 'top', delay: 200 });
+        sr.reveal('.project-card', { origin: 'bottom', interval: 150 });
+        sr.reveal('.contact-section .container', { origin: 'bottom', delay: 200 });
+        
+        // Certificate viewing functionality
+        function openCertificate(filename) {
+            // Create modal
+            const modal = document.createElement('div');
+            modal.className = 'certificate-modal';
+            modal.innerHTML = `
+                <div class="certificate-modal-content">
+                    <button class="certificate-modal-close" onclick="closeCertificateModal()">&times;</button>
+                    <div id="certificate-content"></div>
+                </div>
+            `;
+            
+            // Add modal to body
+            document.body.appendChild(modal);
+            
+            // Get file extension
+            const extension = filename.toLowerCase().split('.').pop();
+            const contentDiv = modal.querySelector('#certificate-content');
+            
+            // Handle different file types
+            if (extension === 'pdf') {
+                // For PDF files, use an object tag
+                contentDiv.innerHTML = `
+                    <object data="${filename}" type="application/pdf" 
+                            style="width: 100%; height: 600px; border: 1px solid #ccc;">
+                        <p>Unable to display PDF file. <a href="${filename}" target="_blank">Click here to download</a></p>
+                    </object>
+                `;
+            } else if (['jpg', 'jpeg', 'png', 'gif'].includes(extension)) {
+                // For image files, use an img tag with proper error handling
+                const img = document.createElement('img');
+                img.src = filename;
+                img.style.maxWidth = '100%';
+                img.style.height = 'auto';
+                img.style.margin = '10px auto';
+                img.style.display = 'block';
+                img.onerror = function() {
+                    contentDiv.innerHTML = `
+                        <p>Unable to load image. <a href="${filename}" target="_blank">Click here to view</a></p>
+                    `;
+                };
+                contentDiv.appendChild(img);
+            } else {
+                contentDiv.innerHTML = `
+                    <p>Unable to display this certificate format. 
+                        <a href="${filename}" target="_blank">Click here to download</a>
+                    </p>
+                `;
+            }
+            
+            // Show modal
+            setTimeout(() => modal.classList.add('active'), 10);
+            
+            // Close on background click
+            modal.addEventListener('click', function(e) {
+                if (e.target === modal) {
+                    closeCertificateModal();
+                }
+            });
+        }
+        
+        function closeCertificateModal() {
+            const modal = document.querySelector('.certificate-modal');
+            if (modal) {
+                modal.classList.remove('active');
+                setTimeout(() => modal.remove(), 300);
+            }
+        }
+        
+        // Close modal on ESC key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeCertificateModal();
+            }
+        });
+    </script>
+</body>
+</html>
