@@ -582,6 +582,30 @@ Assisted in debugging and troubleshooting issues in the development environment.
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
     <script src="script.js"></script>
     <script>
+        // Ensure navbar and hero are visible on load
+        document.addEventListener('DOMContentLoaded', function() {
+            const navbar = document.querySelector('.navbar');
+            const hero = document.querySelector('.hero');
+            
+            if (navbar) {
+                navbar.style.opacity = '1';
+                navbar.style.visibility = 'visible';
+                navbar.style.display = 'flex';
+            }
+            
+            if (hero) {
+                hero.style.opacity = '1';
+                hero.style.visibility = 'visible';
+                hero.style.display = 'flex';
+            }
+        });
+        
+        // Fallback for immediate visibility
+        window.addEventListener('load', function() {
+            document.body.style.opacity = '1';
+            document.body.style.visibility = 'visible';
+        });
+        
         // ScrollReveal Animations
         const sr = ScrollReveal({
             distance: '50px',

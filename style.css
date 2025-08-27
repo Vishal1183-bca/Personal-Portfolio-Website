@@ -5,6 +5,32 @@
   box-sizing: border-box;
 }
 
+/* Prevent FOUC */
+html {
+  visibility: visible;
+  opacity: 1;
+}
+
+body {
+  visibility: visible;
+  opacity: 1;
+}
+
+/* Critical elements always visible */
+.navbar,
+.hero,
+#home {
+  opacity: 1 !important;
+  visibility: visible !important;
+  display: flex !important;
+}
+
+.navbar {
+  position: fixed !important;
+  top: 0 !important;
+  z-index: 9999 !important;
+}
+
 html {
   scroll-behavior: smooth;
   font-size: 100%;
@@ -25,6 +51,8 @@ body {
   width: 100%;
   max-width: 100%;
   position: relative;
+  opacity: 1;
+  visibility: visible;
 }
 
 /* Navbar */
@@ -40,8 +68,10 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  z-index: 1000;
+  z-index: 9999;
   box-sizing: border-box;
+  opacity: 1;
+  visibility: visible;
 }
 
 .navbar .logo {
@@ -87,11 +117,17 @@ body {
   align-items: center;
   padding: 80px 10%;
   min-height: 100vh;
+  opacity: 1;
+  visibility: visible;
+  position: relative;
+  z-index: 1;
 }
 
 .hero-left {
   flex: 1 1 500px;
-  z-index: 1;
+  z-index: 2;
+  opacity: 1;
+  visibility: visible;
 }
 
 .hero-left .tagline {
@@ -154,7 +190,9 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 0;
+  z-index: 2;
+  opacity: 1;
+  visibility: visible;
 }
 
 .hero-right img {
