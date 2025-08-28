@@ -19,16 +19,47 @@ body {
 /* Critical elements always visible */
 .navbar,
 .hero,
-#home {
+#home,
+.about-section {
   opacity: 1 !important;
   visibility: visible !important;
-  display: flex !important;
 }
 
 .navbar {
+  display: flex !important;
   position: fixed !important;
   top: 0 !important;
   z-index: 9999 !important;
+}
+
+.hero,
+#home {
+  display: flex !important;
+}
+
+.about-section {
+  display: flex !important;
+}
+
+/* Mobile visibility fixes */
+@media (max-width: 768px) {
+  .navbar,
+  .hero,
+  #home,
+  .about-section {
+    opacity: 1 !important;
+    visibility: visible !important;
+    display: block !important;
+  }
+  
+  .hero {
+    display: flex !important;
+    flex-direction: column !important;
+  }
+  
+  .navbar {
+    display: flex !important;
+  }
 }
 
 html {

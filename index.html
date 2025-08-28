@@ -12,7 +12,13 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" />
 </head>
 <body>
-    <nav class="navbar">
+    <script>
+        // Immediate mobile visibility fix
+        if (window.innerWidth <= 768) {
+            document.documentElement.style.setProperty('--mobile-fix', 'block');
+        }
+    </script>
+    <nav class="navbar" style="opacity: 1; visibility: visible; display: flex;">
         <a href="#home" class="logo">VISHAL.DEV</a>
         <input type="checkbox" id="menu-toggle" hidden>
         <label for="menu-toggle" class="menu-icon"><i class="fas fa-bars"></i></label>
@@ -26,7 +32,7 @@
         </ul>
     </nav>
 
-    <section id="home" class="hero">
+    <section id="home" class="hero" style="opacity: 1; visibility: visible; display: flex;">
         <div class="hero-left">
             <h1>Hi, I am <span>Vishal Bhaliya</span></h1>
             <h2>I build backend systems with Java, Spring Boot, and MySQL, and create responsive UIs using React, Swing, and JavaFX. I work on REST APIs, microservices, and efficient database design.</h2>
@@ -41,7 +47,7 @@
         </div>
     </section>
 
-    <section id="about" class="about-section">
+    <section id="about" class="about-section" style="opacity: 1; visibility: visible; display: flex;">
         <div class="about-container">
             <div class="about-content">
                 <h5 class="section-subtitle" style="font-weight: 600; color: #777; margin-bottom: 15px;">MY INTRODUCTION</h5>
@@ -582,10 +588,11 @@ Assisted in debugging and troubleshooting issues in the development environment.
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
     <script src="script.js"></script>
     <script>
-        // Ensure navbar and hero are visible on load
+        // Ensure navbar, hero and about are visible on load
         document.addEventListener('DOMContentLoaded', function() {
             const navbar = document.querySelector('.navbar');
             const hero = document.querySelector('.hero');
+            const about = document.querySelector('.about-section');
             
             if (navbar) {
                 navbar.style.opacity = '1';
@@ -598,12 +605,32 @@ Assisted in debugging and troubleshooting issues in the development environment.
                 hero.style.visibility = 'visible';
                 hero.style.display = 'flex';
             }
+            
+            if (about) {
+                about.style.opacity = '1';
+                about.style.visibility = 'visible';
+                about.style.display = 'flex';
+            }
         });
         
         // Fallback for immediate visibility
         window.addEventListener('load', function() {
             document.body.style.opacity = '1';
             document.body.style.visibility = 'visible';
+            
+            // Mobile-specific fixes
+            if (window.innerWidth <= 768) {
+                const sections = ['.navbar', '.hero', '#home', '.about-section'];
+                sections.forEach(selector => {
+                    const element = document.querySelector(selector);
+                    if (element) {
+                        element.style.opacity = '1';
+                        element.style.visibility = 'visible';
+                        element.style.display = element.classList.contains('navbar') ? 'flex' : 
+                                               element.classList.contains('hero') ? 'flex' : 'block';
+                    }
+                });
+            }
         });
         
         // ScrollReveal Animations
