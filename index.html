@@ -2,6 +2,16 @@
 <html lang="en">
 
 <head>
+    <style>
+        /* CRITICAL: Immediate visibility fix */
+        .navbar, .hero, #home, .about-section { display: block !important; opacity: 1 !important; visibility: visible !important; }
+        .navbar { display: flex !important; position: fixed !important; top: 0 !important; z-index: 9999 !important; }
+        .hero { display: flex !important; }
+        @media (max-width: 768px) {
+            .navbar, .hero, #home, .about-section { display: block !important; opacity: 1 !important; visibility: visible !important; }
+            .hero { display: flex !important; flex-direction: column !important; }
+        }
+    </style>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Vishal | Portfolio</title>
@@ -31,10 +41,24 @@
 </head>
 <body>
     <script>
-        // Immediate mobile visibility fix
-        if (window.innerWidth <= 768) {
-            document.documentElement.style.setProperty('--mobile-fix', 'block');
-        }
+        // IMMEDIATE visibility fix - runs before anything else
+        (function() {
+            const style = document.createElement('style');
+            style.innerHTML = '.navbar,.hero,#home,.about-section{display:block!important;opacity:1!important;visibility:visible!important}.navbar{display:flex!important;position:fixed!important}';
+            document.head.appendChild(style);
+            
+            // Force show elements immediately
+            setTimeout(() => {
+                const elements = document.querySelectorAll('.navbar, .hero, #home, .about-section');
+                elements.forEach(el => {
+                    if (el) {
+                        el.style.display = el.classList.contains('navbar') || el.classList.contains('hero') ? 'flex' : 'block';
+                        el.style.opacity = '1';
+                        el.style.visibility = 'visible';
+                    }
+                });
+            }, 0);
+        })();
     </script>
     <nav class="navbar" style="opacity: 1; visibility: visible; display: flex;">
         <a href="#home" class="logo">VISHAL.DEV</a>
@@ -667,11 +691,13 @@ sr.reveal('.skills-category', {
     }
 });
 
-        sr.reveal('.navbar', { origin: 'top', delay: 200 });
-        sr.reveal('.hero-left', { origin: 'left', delay: 300 });
-        sr.reveal('.hero-right', { origin: 'right', delay: 500 });
-        sr.reveal('.about-img', { origin: 'left', delay: 200 });
-        sr.reveal('.about-content', { origin: 'right', delay: 300 });
+        // Disabled for mobile visibility
+        // sr.reveal('.navbar', { origin: 'top', delay: 200 });
+        // sr.reveal('.hero-left', { origin: 'left', delay: 300 });
+        // sr.reveal('.hero-right', { origin: 'right', delay: 500 });
+        // Disabled for mobile visibility
+        // sr.reveal('.about-img', { origin: 'left', delay: 200 });
+        // sr.reveal('.about-content', { origin: 'right', delay: 300 });
         sr.reveal('.certificates-section .section-title', { origin: 'top', delay: 200 });
         sr.reveal('.certificate-card', { origin: 'bottom', interval: 150 });
         sr.reveal('.skills-section h2, .skills-section .skill-category-title', { origin: 'top', delay: 200 });
