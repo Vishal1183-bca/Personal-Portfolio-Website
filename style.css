@@ -29,15 +29,27 @@ body {
 
 /* Ensure all sections are visible */
 section {
-  display: block;
-  visibility: visible;
-  opacity: 1;
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  position: relative !important;
 }
 
 #home, #about {
   display: flex !important;
   visibility: visible !important;
   opacity: 1 !important;
+  position: relative !important;
+  z-index: 1 !important;
+}
+
+/* Force visibility for hero and about sections */
+.hero, .about-section {
+  display: flex !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  position: relative !important;
+  z-index: 1 !important;
 }
 
 /* Navbar */

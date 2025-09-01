@@ -1,0 +1,34 @@
+/* IMMEDIATE VISIBILITY FIX */
+#home, .hero {
+  display: flex !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  position: relative !important;
+  z-index: 1 !important;
+  transform: none !important;
+  animation: none !important;
+}
+
+#about, .about-section {
+  display: flex !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  position: relative !important;
+  z-index: 1 !important;
+  transform: none !important;
+  animation: none !important;
+}
+
+/* Override any ScrollReveal hiding */
+[data-sr] {
+  visibility: visible !important;
+  opacity: 1 !important;
+  transform: none !important;
+}
+
+/* Force all sections visible */
+section {
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
