@@ -156,25 +156,23 @@ body {
   gap: 40px;
 }
 
-/* Desktop layout - text left, image right */
-@media (min-width: 769px) {
+/* Desktop layout - force side by side */
+@media (min-width: 1024px) {
   .hero {
-    flex-direction: row !important;
-    flex-wrap: nowrap !important;
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    grid-gap: 80px !important;
     align-items: center !important;
-    gap: 60px !important;
-    justify-content: space-between !important;
+    max-width: 1200px !important;
+    margin: 0 auto !important;
   }
   .hero-left {
-    order: 1 !important;
-    flex: 1 !important;
-    max-width: 50% !important;
+    grid-column: 1 !important;
     text-align: left !important;
     margin-bottom: 0 !important;
   }
   .hero-right {
-    order: 2 !important;
-    flex: 0 0 45% !important;
+    grid-column: 2 !important;
     display: flex !important;
     justify-content: center !important;
     align-items: center !important;
