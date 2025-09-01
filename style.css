@@ -235,8 +235,14 @@ section {
     padding: 20px 5%;
     min-height: 100vh;
     justify-content: center;
+    flex-direction: column;
+  }
+  .hero-right {
+    order: 1;
+    margin-bottom: 0;
   }
   .hero-left {
+    order: 2;
     margin-bottom: 30px;
     text-align: center;
   }
