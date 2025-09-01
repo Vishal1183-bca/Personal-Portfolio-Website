@@ -1,0 +1,54 @@
+/* HERO LAYOUT FIX - EXACT MATCH */
+@media (min-width: 768px) {
+  .hero {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    padding: 80px 8% !important;
+    gap: 60px !important;
+    max-width: 1200px !important;
+    margin: 0 auto !important;
+  }
+  
+  .hero-left {
+    flex: 1 !important;
+    max-width: 50% !important;
+    text-align: left !important;
+    order: 1 !important;
+  }
+  
+  .hero-right {
+    flex: 0 0 45% !important;
+    order: 2 !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+  }
+  
+  .hero-right img {
+    width: 400px !important;
+    height: 400px !important;
+    border-radius: 50% !important;
+    object-fit: cover !important;
+    border: 10px solid #fff !important;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.25) !important;
+  }
+}
+
+@media (max-width: 767px) {
+  .hero {
+    flex-direction: column !important;
+    text-align: center !important;
+    gap: 30px !important;
+  }
+  
+  .hero-left {
+    order: 1 !important;
+    max-width: 100% !important;
+  }
+  
+  .hero-right {
+    order: 2 !important;
+  }
+}

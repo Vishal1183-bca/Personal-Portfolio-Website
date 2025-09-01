@@ -140,79 +140,20 @@ body {
   cursor: pointer;
 }
 
-/* Hero Section - Base */
+
+/* Hero Section */
 .hero {
   display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
   align-items: center;
-  padding: 80px 5%;
+  padding: 80px 10%;
   min-height: 100vh;
-  opacity: 1;
-  visibility: visible;
-  position: relative;
-  z-index: 1;
-  max-width: 1400px;
-  margin: 0 auto;
-}
-
-/* Desktop Layout - Side by Side */
-@media (min-width: 768px) {
-  .hero {
-    flex-direction: row;
-    gap: 60px;
-    justify-content: space-between;
-  }
-  .hero-left {
-    flex: 1;
-    max-width: 55%;
-    text-align: left;
-  }
-  .hero-right {
-    flex: 0 0 40%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  .hero-right img {
-    width: clamp(300px, 25vw, 450px);
-    height: clamp(300px, 25vw, 450px);
-    border-radius: 50%;
-    object-fit: cover;
-    border: 8px solid #fff;
-    box-shadow: 0 10px 40px rgba(0,0,0,0.2);
-  }
-}
-
-/* Mobile Layout - Stacked */
-@media (max-width: 767px) {
-  .hero {
-    flex-direction: column;
-    text-align: center;
-    gap: 30px;
-    padding: 60px 5%;
-  }
-  .hero-left {
-    order: 1;
-    max-width: 100%;
-  }
-  .hero-right {
-    order: 2;
-  }
-  .hero-right img {
-    width: clamp(200px, 50vw, 280px);
-    height: clamp(200px, 50vw, 280px);
-    border-radius: 50%;
-    object-fit: cover;
-    border: 6px solid #fff;
-    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
-  }
 }
 
 .hero-left {
-  flex: 1;
-  max-width: 60%;
-  z-index: 2;
-  opacity: 1;
-  visibility: visible;
+  flex: 1 1 500px;
+  z-index: 1;
 }
 
 .hero-left .tagline {
@@ -270,14 +211,12 @@ body {
 }
 
 .hero-right {
-  flex: 0 0 40%;
+  flex: 1 1 400px;
   position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 2;
-  opacity: 1;
-  visibility: visible;
+  z-index: 0;
 }
 
 .hero-right img {
@@ -291,20 +230,13 @@ body {
 
 @media (max-width: 768px) {
   .hero {
-    flex-direction: column;
-    flex-wrap: wrap;
     padding: 20px 5%;
     min-height: 100vh;
     justify-content: center;
-    gap: 20px;
   }
   .hero-left {
-    max-width: 100%;
     margin-bottom: 30px;
     text-align: center;
-  }
-  .hero-right {
-    flex: none;
   }
   .hero-left h1 {
     font-size: clamp(1.8rem, 5vw, 2.5rem);
