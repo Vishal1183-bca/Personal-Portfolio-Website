@@ -1,17 +1,99 @@
-// Mobile menu functionality
+// Enhanced Mobile menu functionality
 document.addEventListener('DOMContentLoaded', function() {
     const menuToggle = document.getElementById('menu-toggle');
+    const navLinks = document.querySelector('.nav-links');
     const navLinksAll = document.querySelectorAll('.nav-links a');
+    const menuIcon = document.querySelector('.menu-icon');
+    const body = document.body;
+
+    // Toggle mobile menu
+    if (menuIcon && menuToggle && navLinks) {
+        menuIcon.addEventListener('click', function() {
+            menuToggle.checked = !menuToggle.checked;
+            navLinks.classList.toggle('active', menuToggle.checked);
+            body.classList.toggle('menu-open', menuToggle.checked);
+            
+            // Change hamburger to X icon
+            const icon = this.querySelector('i');
+            if (icon) {
+                icon.className = menuToggle.checked ? 'fas fa-times' : 'fas fa-bars';
+            }
+        });
+    }
 
     // Close menu when clicking on a nav link
     navLinksAll.forEach(link => {
         link.addEventListener('click', function() {
-            if (menuToggle) {
+            if (menuToggle && navLinks) {
                 menuToggle.checked = false;
+                navLinks.classList.remove('active');
+                body.classList.remove('menu-open');
+                
+                // Reset icon
+                const icon = menuIcon?.querySelector('i');
+                if (icon) {
+                    icon.className = 'fas fa-bars';
+                }
             }
         });
     });
+    
+    // Close menu when clicking outside
+    document.addEventListener('click', function(event) {
+        if (menuToggle && menuToggle.checked && 
+            !event.target.closest('.navbar') && 
+            !event.target.closest('.nav-links')) {
+            menuToggle.checked = false;
+            navLinks?.classList.remove('active');
+            body.classList.remove('menu-open');
+            
+            const icon = menuIcon?.querySelector('i');
+            if (icon) {
+                icon.className = 'fas fa-bars';
+            }
+        }
+    });
+    
+    // Handle window resize
+    window.addEventListener('resize', function() {
+        if (window.innerWidth > 768 && menuToggle && menuToggle.checked) {
+            menuToggle.checked = false;
+            navLinks?.classList.remove('active');
+            body.classList.remove('menu-open');
+            
+            const icon = menuIcon?.querySelector('i');
+            if (icon) {
+                icon.className = 'fas fa-bars';
+            }
+        }
+    });
 });
+
+// Responsive image loading
+document.addEventListener('DOMContentLoaded', function() {
+    const images = document.querySelectorAll('img');
+    
+    images.forEach(img => {
+        img.addEventListener('load', function() {
+            this.style.opacity = '1';
+        });
+        
+        img.addEventListener('error', function() {
+            this.style.opacity = '0.5';
+            console.warn('Failed to load image:', this.src);
+        });
+    });
+});
+
+// Viewport height fix for mobile browsers
+function setViewportHeight() {
+    const vh = window.innerHeight * 0.01;
+    document.documentElement.style.setProperty('--vh', `${vh}px`);
+}
+
+setViewportHeight();
+window.addEventListener('resize', setViewportHeight);
+window.addEventListener('orientationchange', setViewportHeight);
 
 // Initialize ScrollReveal animations
 ScrollReveal().reveal('.hero-left', { origin: 'left', distance: '50px', duration: 1000, delay: 300 });

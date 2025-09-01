@@ -2,67 +2,16 @@
 <html lang="en">
 
 <head>
-    <style>
-        /* CRITICAL: Immediate visibility fix */
-        .navbar, .hero, #home, .about-section { display: block !important; opacity: 1 !important; visibility: visible !important; }
-        .navbar { display: flex !important; position: fixed !important; top: 0 !important; z-index: 9999 !important; }
-        .hero { display: flex !important; }
-        @media (max-width: 768px) {
-            .navbar, .hero, #home, .about-section { display: block !important; opacity: 1 !important; visibility: visible !important; }
-            .hero { display: flex !important; flex-direction: column !important; }
-        }
-    </style>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Vishal | Portfolio</title>
     <link rel="stylesheet" href="style.css" />
-    <link rel="stylesheet" href="responsive-final.css" />
-    <link rel="stylesheet" href="skills-responsive.css" />
-    <link rel="stylesheet" href="mobile-fix.css" />
-    <link rel="stylesheet" href="hero-fix.css" />
-    <link rel="stylesheet" href="final-hero-fix.css" />
+    <link rel="stylesheet" href="responsive-complete.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" />
-    <style>
-        /* Critical CSS for mobile visibility */
-        @media (max-width: 768px) {
-            .navbar, .hero, #home, .about-section {
-                display: block !important;
-                opacity: 1 !important;
-                visibility: visible !important;
-            }
-            .navbar { display: flex !important; position: fixed !important; }
-            .hero { display: flex !important; flex-direction: column !important; }
-            .about-section { display: flex !important; }
-        }
-        .navbar, .hero, #home, .about-section {
-            opacity: 1 !important;
-            visibility: visible !important;
-        }
-    </style>
 </head>
 <body>
-    <script>
-        // IMMEDIATE visibility fix - runs before anything else
-        (function() {
-            const style = document.createElement('style');
-            style.innerHTML = '.navbar,.hero,#home,.about-section{display:block!important;opacity:1!important;visibility:visible!important}.navbar{display:flex!important;position:fixed!important}';
-            document.head.appendChild(style);
-            
-            // Force show elements immediately
-            setTimeout(() => {
-                const elements = document.querySelectorAll('.navbar, .hero, #home, .about-section');
-                elements.forEach(el => {
-                    if (el) {
-                        el.style.display = el.classList.contains('navbar') || el.classList.contains('hero') ? 'flex' : 'block';
-                        el.style.opacity = '1';
-                        el.style.visibility = 'visible';
-                    }
-                });
-            }, 0);
-        })();
-    </script>
-    <nav class="navbar" style="opacity: 1; visibility: visible; display: flex;">
+    <nav class="navbar">
         <a href="#home" class="logo">VISHAL.DEV</a>
         <input type="checkbox" id="menu-toggle" hidden>
         <label for="menu-toggle" class="menu-icon"><i class="fas fa-bars"></i></label>
@@ -76,7 +25,7 @@
         </ul>
     </nav>
 
-    <section id="home" class="hero" style="opacity: 1; visibility: visible; display: flex;">
+    <section id="home" class="hero">
         <div class="hero-left">
             <h1>Hi, I am <span>Vishal Bhaliya</span></h1>
             <h2>I build backend systems with Java, Spring Boot, and MySQL, and create responsive UIs using React, Swing, and JavaFX. I work on REST APIs, microservices, and efficient database design.</h2>
@@ -91,7 +40,7 @@
         </div>
     </section>
 
-    <section id="about" class="about-section" style="opacity: 1; visibility: visible; display: flex;">
+    <section id="about" class="about-section">
         <div class="about-container">
             <div class="about-content">
                 <h5 class="section-subtitle" style="font-weight: 600; color: #777; margin-bottom: 15px;">MY INTRODUCTION</h5>
@@ -632,51 +581,6 @@ Assisted in debugging and troubleshooting issues in the development environment.
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
     <script src="script.js"></script>
     <script>
-        // Ensure navbar, hero and about are visible on load
-        document.addEventListener('DOMContentLoaded', function() {
-            const navbar = document.querySelector('.navbar');
-            const hero = document.querySelector('.hero');
-            const about = document.querySelector('.about-section');
-            
-            if (navbar) {
-                navbar.style.opacity = '1';
-                navbar.style.visibility = 'visible';
-                navbar.style.display = 'flex';
-            }
-            
-            if (hero) {
-                hero.style.opacity = '1';
-                hero.style.visibility = 'visible';
-                hero.style.display = 'flex';
-            }
-            
-            if (about) {
-                about.style.opacity = '1';
-                about.style.visibility = 'visible';
-                about.style.display = 'flex';
-            }
-        });
-        
-        // Fallback for immediate visibility
-        window.addEventListener('load', function() {
-            document.body.style.opacity = '1';
-            document.body.style.visibility = 'visible';
-            
-            // Mobile-specific fixes
-            if (window.innerWidth <= 768) {
-                const sections = ['.navbar', '.hero', '#home', '.about-section'];
-                sections.forEach(selector => {
-                    const element = document.querySelector(selector);
-                    if (element) {
-                        element.style.opacity = '1';
-                        element.style.visibility = 'visible';
-                        element.style.display = element.classList.contains('navbar') ? 'flex' : 
-                                               element.classList.contains('hero') ? 'flex' : 'block';
-                    }
-                });
-            }
-        });
-        
         // ScrollReveal Animations
         const sr = ScrollReveal({
             distance: '50px',
@@ -693,13 +597,11 @@ sr.reveal('.skills-category', {
     }
 });
 
-        // Disabled for mobile visibility
-        // sr.reveal('.navbar', { origin: 'top', delay: 200 });
-        // sr.reveal('.hero-left', { origin: 'left', delay: 300 });
-        // sr.reveal('.hero-right', { origin: 'right', delay: 500 });
-        // Disabled for mobile visibility
-        // sr.reveal('.about-img', { origin: 'left', delay: 200 });
-        // sr.reveal('.about-content', { origin: 'right', delay: 300 });
+        sr.reveal('.navbar', { origin: 'top', delay: 200 });
+        sr.reveal('.hero-left', { origin: 'left', delay: 300 });
+        sr.reveal('.hero-right', { origin: 'right', delay: 500 });
+        sr.reveal('.about-img', { origin: 'left', delay: 200 });
+        sr.reveal('.about-content', { origin: 'right', delay: 300 });
         sr.reveal('.certificates-section .section-title', { origin: 'top', delay: 200 });
         sr.reveal('.certificate-card', { origin: 'bottom', interval: 150 });
         sr.reveal('.skills-section h2, .skills-section .skill-category-title', { origin: 'top', delay: 200 });
