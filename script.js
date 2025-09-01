@@ -16,6 +16,41 @@ document.addEventListener('DOMContentLoaded', function() {
         aboutSection.style.opacity = '1';
     }
     
+    // Smooth scroll animations
+    const aboutContent = document.querySelector('.about-content');
+    const certificatesSection = document.querySelector('.certificates-section');
+    const certificateCards = document.querySelectorAll('.certificate-card');
+    
+    const scrollObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('animate');
+            }
+        });
+    }, { threshold: 0.2 });
+    
+    const cardObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry, index) => {
+            if (entry.isIntersecting) {
+                setTimeout(() => {
+                    entry.target.classList.add('animate');
+                }, index * 150);
+            }
+        });
+    }, { threshold: 0.1 });
+    
+    if (aboutContent) {
+        scrollObserver.observe(aboutContent);
+    }
+    
+    if (certificatesSection) {
+        scrollObserver.observe(certificatesSection);
+    }
+    
+    certificateCards.forEach(card => {
+        cardObserver.observe(card);
+    });
+    
     // Scroll animations
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
@@ -205,11 +240,9 @@ document.addEventListener('DOMContentLoaded', function() {
             const targetSection = document.querySelector(targetId);
             
             if (targetSection) {
-                const offsetTop = targetSection.offsetTop - 80;
-                
-                window.scrollTo({
-                    top: offsetTop,
-                    behavior: 'smooth'
+                targetSection.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
                 });
             }
         });
