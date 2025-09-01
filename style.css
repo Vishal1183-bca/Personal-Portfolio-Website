@@ -140,56 +140,70 @@ body {
   cursor: pointer;
 }
 
-/* Hero Section */
+/* Hero Section - Base */
 .hero {
   display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  justify-content: space-between;
   align-items: center;
-  padding: 80px 10%;
+  padding: 80px 5%;
   min-height: 100vh;
   opacity: 1;
   visibility: visible;
   position: relative;
   z-index: 1;
-  gap: 40px;
+  max-width: 1400px;
+  margin: 0 auto;
 }
 
-/* Desktop layout - ALL desktop screens */
-@media (min-width: 769px) {
+/* Desktop Layout - Side by Side */
+@media (min-width: 768px) {
   .hero {
-    display: grid !important;
-    grid-template-columns: 1fr 1fr !important;
-    grid-gap: 60px !important;
-    align-items: center !important;
-    padding: 80px 5% !important;
-    flex-direction: unset !important;
-    flex-wrap: unset !important;
+    flex-direction: row;
+    gap: 60px;
+    justify-content: space-between;
   }
   .hero-left {
-    grid-column: 1 !important;
-    text-align: left !important;
-    margin-bottom: 0 !important;
-    flex: unset !important;
-    max-width: unset !important;
-    order: unset !important;
+    flex: 1;
+    max-width: 55%;
+    text-align: left;
   }
   .hero-right {
-    grid-column: 2 !important;
-    display: flex !important;
-    justify-content: center !important;
-    align-items: center !important;
-    flex: unset !important;
-    order: unset !important;
+    flex: 0 0 40%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
   .hero-right img {
-    width: 350px !important;
-    height: 350px !important;
-    border-radius: 50% !important;
-    object-fit: cover !important;
-    border: 6px solid #fff !important;
-    box-shadow: 0 8px 25px rgba(0,0,0,0.15) !important;
+    width: clamp(300px, 25vw, 450px);
+    height: clamp(300px, 25vw, 450px);
+    border-radius: 50%;
+    object-fit: cover;
+    border: 8px solid #fff;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+  }
+}
+
+/* Mobile Layout - Stacked */
+@media (max-width: 767px) {
+  .hero {
+    flex-direction: column;
+    text-align: center;
+    gap: 30px;
+    padding: 60px 5%;
+  }
+  .hero-left {
+    order: 1;
+    max-width: 100%;
+  }
+  .hero-right {
+    order: 2;
+  }
+  .hero-right img {
+    width: clamp(200px, 50vw, 280px);
+    height: clamp(200px, 50vw, 280px);
+    border-radius: 50%;
+    object-fit: cover;
+    border: 6px solid #fff;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
   }
 }
 
