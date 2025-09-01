@@ -161,15 +161,29 @@ body {
   .hero {
     flex-direction: row;
     flex-wrap: nowrap;
+    align-items: center;
+    gap: 60px;
   }
   .hero-left {
     order: 1;
     flex: 1;
-    max-width: 55%;
+    max-width: 50%;
+    text-align: left;
   }
   .hero-right {
     order: 2;
-    flex: 0 0 40%;
+    flex: 0 0 45%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .hero-right img {
+    width: 400px;
+    height: 400px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 8px solid #fff;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
   }
 }
 
