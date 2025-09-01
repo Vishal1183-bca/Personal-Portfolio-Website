@@ -27,14 +27,17 @@ body {
   position: relative;
 }
 
-/* Ensure sections are visible */
+/* Ensure all sections are visible */
 section {
-  position: relative;
-  z-index: 1;
+  display: block;
+  visibility: visible;
+  opacity: 1;
 }
 
 #home, #about {
-  scroll-margin-top: 80px;
+  display: flex !important;
+  visibility: visible !important;
+  opacity: 1 !important;
 }
 
 /* Navbar */
@@ -97,19 +100,49 @@ section {
   align-items: center;
   padding: 80px 10%;
   min-height: 100vh;
-  scroll-margin-top: 80px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
   position: relative;
-  z-index: 1;
+  overflow: hidden;
+  visibility: visible;
+  opacity: 1;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+  z-index: 0;
+}
+
+.hero-left, .hero-right {
+  position: relative;
+  z-index: 2;
 }
 
 .hero-left {
   flex: 1 1 500px;
   z-index: 1;
+  color: white !important;
+}
+
+.hero-left * {
+  color: white !important;
+}
+
+.hero-left h1,
+.hero-left h2,
+.hero-left h3 {
+  color: white !important;
 }
 
 .hero-left .tagline {
   font-size: 14px;
-  color: #999;
+  color: rgba(255, 255, 255, 0.8);
   margin-bottom: 20px;
   letter-spacing: 2px;
 }
@@ -118,23 +151,23 @@ section {
   font-size: clamp(2.2rem, 6vw, 3rem);
   font-weight: 700;
   margin-bottom: 30px;
-  color: #111;
+  color: white;
 }
 .hero-left h2{
-  font-size: clamp(2.0rem, 4vw, 2rem);
+  font-size: clamp(1.2rem, 3vw, 1.6rem);
   font-weight: 400;
   margin-bottom: 30px;
-  color: #111;
+  color: white;
 }
 .hero-left h3 {
-  font-size: clamp(1.2rem,2vw, 1rem);
-  font-weight: 250;
+  font-size: clamp(1rem, 2vw, 1.2rem);
+  font-weight: 300;
   margin-bottom: 30px;
-  color: #111;
+  color: white;
 }
 
 .hero-left h1 span {
-  color: #a5a488;
+  color: #ffd700;
 }
 
 .buttons {
@@ -157,8 +190,14 @@ section {
 }
 
 .btn.outline {
-  border: 2px solid #a5a488;
-  color: #a5a488;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  color: white;
+  backdrop-filter: blur(10px);
+}
+
+.btn.outline:hover {
+  background: rgba(255, 255, 255, 0.1);
+  transform: translateY(-2px);
 }
 
 .hero-right {
@@ -167,7 +206,7 @@ section {
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 0;
+  z-index: 2;
 }
 
 .hero-right img {
@@ -290,9 +329,8 @@ section {
   display: flex;
   align-items: center;
   justify-content: center;
-  scroll-margin-top: 80px;
-  position: relative;
-  z-index: 1;
+  visibility: visible;
+  opacity: 1;
 }
 
 .about-container {

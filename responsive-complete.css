@@ -273,13 +273,17 @@ body {
 
 /* Enhanced Hero Section with Full Responsiveness */
 .hero {
-  display: flex;
+  display: flex !important;
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
   padding: 80px 10%;
   min-height: 100vh;
   gap: 40px;
+  visibility: visible !important;
+  opacity: 1 !important;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+  color: white !important;
 }
 
 .hero-left {
@@ -449,13 +453,15 @@ body {
 
 /* Enhanced About Section */
 .about-section {
-  background-color: #fff;
+  background-color: #fff !important;
   min-height: 100vh;
   padding: clamp(40px, 8vw, 80px) 0;
   font-family: "Poppins", sans-serif;
-  display: flex;
+  display: flex !important;
   align-items: center;
   justify-content: center;
+  visibility: visible !important;
+  opacity: 1 !important;
 }
 
 .about-container {

@@ -1,5 +1,116 @@
-// Enhanced Mobile menu functionality
+// Modern Portfolio Animations and Interactions
 document.addEventListener('DOMContentLoaded', function() {
+    // Ensure sections are visible
+    const heroSection = document.getElementById('home');
+    const aboutSection = document.getElementById('about');
+    
+    if (heroSection) {
+        heroSection.style.display = 'flex';
+        heroSection.style.visibility = 'visible';
+        heroSection.style.opacity = '1';
+    }
+    
+    if (aboutSection) {
+        aboutSection.style.display = 'flex';
+        aboutSection.style.visibility = 'visible';
+        aboutSection.style.opacity = '1';
+    }
+    
+    // Scroll animations
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, { threshold: 0.1 });
+    
+    document.querySelectorAll('section').forEach(section => {
+        observer.observe(section);
+    });
+    
+    // Initialize all animations
+    initNavbar();
+    initParticles();
+    initScrollAnimations();
+    initMobileMenu();
+    initTypingEffect();
+});
+
+// Modern Navbar with scroll effects
+function initNavbar() {
+    const navbar = document.querySelector('.navbar');
+    
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 100) {
+            navbar.classList.add('scrolled');
+        } else {
+            navbar.classList.remove('scrolled');
+        }
+    });
+}
+
+// Particle animation for hero section
+function initParticles() {
+    const particlesContainer = document.querySelector('.particles');
+    if (!particlesContainer) {
+        // Create particles container if it doesn't exist
+        const hero = document.querySelector('.hero');
+        if (hero) {
+            const container = document.createElement('div');
+            container.className = 'particles';
+            container.style.cssText = 'position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 1;';
+            hero.appendChild(container);
+        }
+        return;
+    }
+    
+    function createParticle() {
+        const particle = document.createElement('div');
+        particle.className = 'particle';
+        
+        const size = Math.random() * 5 + 2;
+        const startX = Math.random() * window.innerWidth;
+        const duration = Math.random() * 10 + 10;
+        
+        particle.style.width = size + 'px';
+        particle.style.height = size + 'px';
+        particle.style.left = startX + 'px';
+        particle.style.animationDuration = duration + 's';
+        
+        particlesContainer.appendChild(particle);
+        
+        setTimeout(() => {
+            particle.remove();
+        }, duration * 1000);
+    }
+    
+    // Create particles periodically
+    setInterval(createParticle, 300);
+}
+
+// Scroll-triggered animations
+function initScrollAnimations() {
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    };
+    
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('animated');
+            }
+        });
+    }, observerOptions);
+    
+    document.querySelectorAll('.animate-on-scroll').forEach(el => {
+        observer.observe(el);
+    });
+}
+
+// Enhanced mobile menu
+function initMobileMenu() {
     const menuToggle = document.getElementById('menu-toggle');
     const navLinks = document.querySelector('.nav-links');
     const navLinksAll = document.querySelectorAll('.nav-links a');
@@ -7,16 +118,15 @@ document.addEventListener('DOMContentLoaded', function() {
     const body = document.body;
 
     // Toggle mobile menu
-    if (menuIcon && menuToggle && navLinks) {
+    if (menuIcon && navLinks) {
         menuIcon.addEventListener('click', function() {
-            menuToggle.checked = !menuToggle.checked;
-            navLinks.classList.toggle('active', menuToggle.checked);
-            body.classList.toggle('menu-open', menuToggle.checked);
+            navLinks.classList.toggle('active');
+            body.classList.toggle('menu-open');
             
             // Change hamburger to X icon
             const icon = this.querySelector('i');
             if (icon) {
-                icon.className = menuToggle.checked ? 'fas fa-times' : 'fas fa-bars';
+                icon.className = navLinks.classList.contains('active') ? 'fas fa-times' : 'fas fa-bars';
             }
         });
     }
@@ -24,27 +134,22 @@ document.addEventListener('DOMContentLoaded', function() {
     // Close menu when clicking on a nav link
     navLinksAll.forEach(link => {
         link.addEventListener('click', function() {
-            if (menuToggle && navLinks) {
+            if (menuToggle) {
                 menuToggle.checked = false;
+            }
+            if (navLinks) {
                 navLinks.classList.remove('active');
                 body.classList.remove('menu-open');
-                
-                // Reset icon
-                const icon = menuIcon?.querySelector('i');
-                if (icon) {
-                    icon.className = 'fas fa-bars';
-                }
             }
         });
     });
     
     // Close menu when clicking outside
     document.addEventListener('click', function(event) {
-        if (menuToggle && menuToggle.checked && 
+        if (navLinks && navLinks.classList.contains('active') && 
             !event.target.closest('.navbar') && 
             !event.target.closest('.nav-links')) {
-            menuToggle.checked = false;
-            navLinks?.classList.remove('active');
+            navLinks.classList.remove('active');
             body.classList.remove('menu-open');
             
             const icon = menuIcon?.querySelector('i');
@@ -56,9 +161,8 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Handle window resize
     window.addEventListener('resize', function() {
-        if (window.innerWidth > 768 && menuToggle && menuToggle.checked) {
-            menuToggle.checked = false;
-            navLinks?.classList.remove('active');
+        if (window.innerWidth > 768 && navLinks && navLinks.classList.contains('active')) {
+            navLinks.classList.remove('active');
             body.classList.remove('menu-open');
             
             const icon = menuIcon?.querySelector('i');
@@ -66,6 +170,66 @@ document.addEventListener('DOMContentLoaded', function() {
                 icon.className = 'fas fa-bars';
             }
         }
+    });
+}
+
+// Typing effect for hero section
+function initTypingEffect() {
+    const textElement = document.querySelector('.hero-left h2');
+    if (!textElement) return;
+    
+    const originalText = textElement.textContent;
+    textElement.textContent = '';
+    
+    let i = 0;
+    function typeWriter() {
+        if (i < originalText.length) {
+            textElement.textContent += originalText.charAt(i);
+            i++;
+            setTimeout(typeWriter, 50);
+        }
+    }
+    
+    // Start typing effect after a delay
+    setTimeout(typeWriter, 1000);
+}
+
+// Smooth scrolling for navigation links
+document.addEventListener('DOMContentLoaded', function() {
+    const navLinks = document.querySelectorAll('.nav-links a[href^="#"]');
+    
+    navLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href');
+            const targetSection = document.querySelector(targetId);
+            
+            if (targetSection) {
+                const offsetTop = targetSection.offsetTop - 80;
+                
+                window.scrollTo({
+                    top: offsetTop,
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
+});
+
+// Add loading animation to buttons
+document.addEventListener('DOMContentLoaded', function() {
+    const buttons = document.querySelectorAll('.btn');
+    
+    buttons.forEach(button => {
+        button.addEventListener('click', function() {
+            if (!this.href || this.href.includes('#')) return;
+            
+            this.classList.add('loading');
+            
+            setTimeout(() => {
+                this.classList.remove('loading');
+            }, 2000);
+        });
     });
 });
 

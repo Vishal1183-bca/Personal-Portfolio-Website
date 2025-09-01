@@ -1,0 +1,43 @@
+/* FORCE SECTIONS VISIBLE - PERMANENT FIX */
+#home {
+  display: flex !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  position: static !important;
+  height: auto !important;
+  min-height: 100vh !important;
+}
+
+#about {
+  display: flex !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  position: static !important;
+  height: auto !important;
+  min-height: 100vh !important;
+}
+
+.hero {
+  display: flex !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+.about-section {
+  display: flex !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+/* Override any hiding styles */
+section[style*="display: none"] {
+  display: flex !important;
+}
+
+section[style*="visibility: hidden"] {
+  visibility: visible !important;
+}
+
+section[style*="opacity: 0"] {
+  opacity: 1 !important;
+}
