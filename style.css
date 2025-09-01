@@ -156,34 +156,40 @@ body {
   gap: 40px;
 }
 
-/* Desktop layout - force side by side */
-@media (min-width: 1024px) {
+/* Desktop layout - ALL desktop screens */
+@media (min-width: 769px) {
   .hero {
     display: grid !important;
     grid-template-columns: 1fr 1fr !important;
-    grid-gap: 80px !important;
+    grid-gap: 60px !important;
     align-items: center !important;
-    max-width: 1200px !important;
-    margin: 0 auto !important;
+    padding: 80px 5% !important;
+    flex-direction: unset !important;
+    flex-wrap: unset !important;
   }
   .hero-left {
     grid-column: 1 !important;
     text-align: left !important;
     margin-bottom: 0 !important;
+    flex: unset !important;
+    max-width: unset !important;
+    order: unset !important;
   }
   .hero-right {
     grid-column: 2 !important;
     display: flex !important;
     justify-content: center !important;
     align-items: center !important;
+    flex: unset !important;
+    order: unset !important;
   }
   .hero-right img {
-    width: 400px !important;
-    height: 400px !important;
+    width: 350px !important;
+    height: 350px !important;
     border-radius: 50% !important;
     object-fit: cover !important;
-    border: 8px solid #fff !important;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.2) !important;
+    border: 6px solid #fff !important;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15) !important;
   }
 }
 
