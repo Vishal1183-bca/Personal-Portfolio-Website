@@ -159,31 +159,33 @@ body {
 /* Desktop layout - text left, image right */
 @media (min-width: 769px) {
   .hero {
-    flex-direction: row;
-    flex-wrap: nowrap;
-    align-items: center;
-    gap: 60px;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    align-items: center !important;
+    gap: 60px !important;
+    justify-content: space-between !important;
   }
   .hero-left {
-    order: 1;
-    flex: 1;
-    max-width: 50%;
-    text-align: left;
+    order: 1 !important;
+    flex: 1 !important;
+    max-width: 50% !important;
+    text-align: left !important;
+    margin-bottom: 0 !important;
   }
   .hero-right {
-    order: 2;
-    flex: 0 0 45%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    order: 2 !important;
+    flex: 0 0 45% !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
   }
   .hero-right img {
-    width: 400px;
-    height: 400px;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 8px solid #fff;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    width: 400px !important;
+    height: 400px !important;
+    border-radius: 50% !important;
+    object-fit: cover !important;
+    border: 8px solid #fff !important;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2) !important;
   }
 }
 
